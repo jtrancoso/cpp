@@ -1,7 +1,7 @@
-SRCS =	test.cpp
+SRCS =	megaphone.cpp
 		
 OBJS = ${SRCS:.cpp=.o}
-NAME = test
+NAME = megaphone
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 CC = c++
 RM = rm -f
