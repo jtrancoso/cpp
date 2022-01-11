@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:56:04 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/10 12:48:20 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/11 14:06:47 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,16 @@ class Contact
 			std::string getnumber();
 			void setsecret(std::string s);
 			std::string getsecret();
+			bool isEmpty();
 };
+
+bool Contact::isEmpty()
+{
+	if (this->name.empty() && this->lastname.empty() && this->nickname.empty() && this->number.empty() && this->secret.empty())
+		return (true);
+	else
+		return (false);
+}
 
 void Contact::setname(std::string n){
 	name = n;

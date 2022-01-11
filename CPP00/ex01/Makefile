@@ -10,7 +10,7 @@ RM = rm -f
 		${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
 
 ${NAME}:	${OBJS}
-			$(CC) ${OBJS} -o ${NAME}
+			$(CC) -fsanitize=address ${OBJS} -o ${NAME}
 
 all:		${NAME}
 
