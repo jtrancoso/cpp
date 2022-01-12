@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:10:58 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/12 12:18:30 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/12 12:50:58 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 class Phonedex
 {
-	Contact id[8];
-	int		i;
-	int		numofcontact;
+	private:
+			Contact id[8];
+			int		i;
+			int		numofcontact;
 
 	public:
 			Phonedex();

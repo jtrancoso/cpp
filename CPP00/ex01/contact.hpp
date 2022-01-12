@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:56:04 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/11 14:06:47 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/12 12:50:48 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,12 @@
 
 class Contact
 {	
-	std::string name;
-	std::string lastname;
-	std::string nickname;
-	std::string number;
-	std::string secret;
+	private:
+			std::string name;
+			std::string lastname;
+			std::string nickname;
+			std::string number;
+			std::string secret;
 	
 	public:
 			void setname(std::string n);
