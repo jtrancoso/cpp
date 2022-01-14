@@ -6,9 +6,12 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 12:42:00 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/12 12:59:31 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/14 18:05:29 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Account.hpp"
+#include <iostream.h>
+
+
 
