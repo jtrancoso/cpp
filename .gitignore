@@ -1,1 +1,5 @@
 *.o
+phonedex
+megaphone
+account
+.DS_Store
