@@ -6,30 +6,32 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:10:58 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/12 12:50:58 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:19:21 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #include "phonedex.h"
 
 class Phonedex
 {
-	private:
-			Contact id[8];
-			int		i;
-			int		numofcontact;
-
 	public:
 			Phonedex();
 			void addcontact();
 			void search();
 			void printcontact();
 			int countcontact();
+
+	private:
+			Contact _id[8];
+			int		_i;
+			int		_numofcontact;
+
 };
 
 Phonedex::Phonedex() //te construye
 {
-	this->i = 0;
+	this->_i = 0;
 }
 
 void Phonedex::addcontact()
@@ -57,11 +59,11 @@ void Phonedex::addcontact()
 	std::cin.clear();
 	std::getline(std::cin, input);
 	contact.setsecret(input);
-	this->id[this->i] = contact;
-	if (this->i < 7)
-		this->i++;
+	this->_id[this->_i] = contact;
+	if (this->_i < 7)
+		this->_i++;
 	else
-		this->i = 0;
+		this->_i = 0;
 }
 
 std::string namelenght(std::string name)
@@ -80,7 +82,7 @@ int Phonedex::countcontact()
 	int i;
 
 	i = 0;
-	while (!this->id[i].isEmpty() && i < 8)
+	while (!this->_id[i].isEmpty() && i < 8)
 		i++;
 	return (i);
 }
@@ -91,14 +93,14 @@ void Phonedex::printcontact()
 	std::string name;
 	int i;
 
-	this->numofcontact = this->countcontact();
-	if (this->numofcontact == 0)
+	this->_numofcontact = this->countcontact();
+	if (this->_numofcontact == 0)
 		return ;
 	std::cout << "LIST OF CONTACTS" << std::endl;
 	std::cout << "----------------" << std::endl;
-	for (i = 1; i <= this->numofcontact; i++)
+	for (i = 1; i <= this->_numofcontact; i++)
 	{
-		contact = this->id[i - 1];
+		contact = this->_id[i - 1];
 		std::cout << std::setw(10) << i << '|';
 		name = contact.getname();
 		name = namelenght(name);
@@ -130,7 +132,7 @@ void Phonedex::search()
 	int index;
 
 	printcontact();
-	if (this->numofcontact == 0)
+	if (this->_numofcontact == 0)
 	{
 		std::cout << "There are no contacts in the phonedex. Use ADD to create a contact entry" << std::endl;
 		return ;
@@ -143,9 +145,9 @@ void Phonedex::search()
 		return ;
 	}
 	index = std::stoi(input);
-	if (index <= numofcontact)
+	if (index <= this->_numofcontact)
 	{
-		contact = this->id[index - 1];
+		contact = this->_id[index - 1];
 		std::cout << "Name: " << contact.getname() << std::endl;
 		std::cout << "Last Name: " << contact.getlastname() << std::endl;
 		std::cout << "Nickname: " << contact.getnickname() << std::endl;

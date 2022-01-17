@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 11:56:04 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/12 12:50:48 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/17 12:17:56 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 class Contact
 {	
-	private:
-			std::string name;
-			std::string lastname;
-			std::string nickname;
-			std::string number;
-			std::string secret;
-	
 	public:
 			void setname(std::string n);
 			std::string getname();
@@ -33,52 +26,59 @@ class Contact
 			void setsecret(std::string s);
 			std::string getsecret();
 			bool isEmpty();
+
+	private:
+			std::string _name;
+			std::string _lastname;
+			std::string _nickname;
+			std::string _number;
+			std::string _secret;
 };
 
 bool Contact::isEmpty()
 {
-	if (this->name.empty() && this->lastname.empty() && this->nickname.empty() && this->number.empty() && this->secret.empty())
+	if (this->_name.empty() && this->_lastname.empty() && this->_nickname.empty() && this->_number.empty() && this->_secret.empty())
 		return (true);
 	else
 		return (false);
 }
 
 void Contact::setname(std::string n){
-	name = n;
+	_name = n;
 }
 
 std::string Contact::getname(){
-	return name;
+	return _name;
 }
 
 void Contact::setlastname(std::string ln){
-	lastname = ln;
+	_lastname = ln;
 }
 
 std::string Contact::getlastname(){
-	return lastname;
+	return _lastname;
 }
 
 void Contact::setnickname(std::string nn){
-	nickname = nn;
+	_nickname = nn;
 }
 
 std::string Contact::getnickname(){
-	return nickname;
+	return _nickname;
 }
 
 void Contact::setnumber(std::string nu){
-	number = nu;
+	_number = nu;
 }
 
 std::string Contact::getnumber(){
-	return number;
+	return _number;
 }
 
 void Contact::setsecret(std::string s){
-	secret = s;
+	_secret = s;
 }
 
 std::string Contact::getsecret(){
-	return secret;
+	return _secret;
 }
