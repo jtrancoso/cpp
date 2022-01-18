@@ -1,6 +1,6 @@
 SRCS =	main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 OBJS = ${SRCS:.cpp=.o}
-NAME = brainz
+NAME = zombie
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98
 CC = clang++
 RM = rm -f
