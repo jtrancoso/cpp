@@ -1,13 +1,12 @@
 SRCS =	Account.cpp tests.cpp
-		
 OBJS = ${SRCS:.cpp=.o}
 NAME = account
-CFLAGS = -Werror -Wall -Wextra -std=c++98
-CC = c++
+CXXFLAGS = -Werror -Wall -Wextra -std=c++98
+CC = clang++
 RM = rm -f
 
 .c.o:
-		${CC} ${CFLAGS} -c $< -o ${<:.cpp=.o}
+		${CC} ${CXXFLAGS} -c $< -o ${<:.cpp=.o}
 
 ${NAME}:	${OBJS}
 			$(CC) -fsanitize=address ${OBJS} -o ${NAME}

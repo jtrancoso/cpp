@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/10 12:10:58 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/17 12:19:21 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/18 11:18:16 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,10 @@ void Phonedex::printcontact()
 	this->_numofcontact = this->countcontact();
 	if (this->_numofcontact == 0)
 		return ;
-	std::cout << "LIST OF CONTACTS" << std::endl;
-	std::cout << "----------------" << std::endl;
+	std::cout << std::endl;
+	std::cout << "--------------- LIST OF CONTACTS ---------------" << std::endl;
+	std::cout << "------------------------------------------------" << std::endl;
+	std::cout << std::endl;
 	for (i = 1; i <= this->_numofcontact; i++)
 	{
 		contact = this->_id[i - 1];
@@ -112,14 +114,17 @@ void Phonedex::printcontact()
 		name = namelenght(name);
 		std::cout << std::setw(10) << name << std::endl;
 	}
+	std::cout << std::endl;
+	std::cout << "------------------------------------------------" << std::endl;
+	std::cout << std::endl;
 }
 
 int isnumber(std::string str)
 {
-	for (int i = 0; i < str.length(); i++)
+	for (size_t i = 0; i < str.length(); i++)
 	{
 		if (isdigit(str[i]) == 0)
-			return 0;
+			return (0);
 	}
 	return (1);
 
