@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 15:17:56 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/20 13:39:29 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/20 13:49:56 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,11 @@ int main(int argc, char **argv)
 		s2 = argv[3];
 		if (fileName.empty() || s1.empty() || s2.empty())
 			return (ft_error("Please fill your strings"));
-		srcFile.open(fileName, std::ios::in);
+		srcFile.open(fileName);
 		if (srcFile.is_open())
 		{
 			finalName = fileName.append(".replace");
-			dstFile.open(finalName, std::ios::out);
+			dstFile.open(finalName);
 			if (dstFile.is_open())
 			{
 				while (!srcFile.eof())
