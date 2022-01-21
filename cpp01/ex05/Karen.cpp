@@ -6,12 +6,24 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/20 13:45:01 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/20 18:07:31 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/21 12:22:29 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Karen.hpp"
 #include <iostream>
+
+Karen::Karen()
+{
+	this->karenSays[0].level = "debug";
+	this->karenSays[0].action = &Karen::debug;
+	Karen::karenSays[1].level = "info";
+	Karen::karenSays[1].action = &Karen::info;
+	this->karenSays[2].level = "warning";
+	this->karenSays[2].action = &Karen::warning;
+	Karen::karenSays[3].level = "error";
+	Karen::karenSays[3].action = &Karen::error;
+}
 
 void Karen::debug()
 {
@@ -35,5 +47,9 @@ void Karen::error()
 
 void Karen::complain(std::string level)
 {
-	
+	for (int i = 0; i < 4; i++)
+	{
+		if (level == this->karenSays[i].level)
+			(this->*karenSays[i].action)();
+	}
 }
