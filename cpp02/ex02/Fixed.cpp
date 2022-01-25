@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 13:50:51 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/24 17:27:55 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:14:07 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,16 @@
 Fixed::Fixed(void) 
 {
 	this->_fixedPoint = 0;
-	std::cout << "Default constructor called" << std::endl;
 	return;
 }
 
 Fixed::Fixed(const int i)
 {
-	std::cout << "Int constructor called" << std::endl;
 	this->_fixedPoint = i << this->_fractBits;
 }
 
 Fixed::Fixed(const float f)
 {
-	std::cout << "Float constructor called" << std::endl;
 	this->_fixedPoint = roundf(f *(1 << this->_fractBits));
 }
 
@@ -39,7 +36,6 @@ Fixed::Fixed(const float f)
 
 Fixed::~Fixed(void)
 {
-	std::cout << "Destructor called" << std::endl;
 	return;
 }
 
@@ -47,7 +43,6 @@ Fixed::~Fixed(void)
 
 Fixed::Fixed(const Fixed &Copy)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	*this = Copy;
 	return;
 }
@@ -58,7 +53,6 @@ Fixed::Fixed(const Fixed &Copy)
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Assignation operator called" << std::endl;
 	if (this != &other)
 	{
 		this->_fixedPoint = other.getRawBits();
@@ -68,44 +62,44 @@ Fixed &Fixed::operator=(const Fixed &other)
 
 //comparison operators
 
-bool &Fixed::operator>(const Fixed &other)
+bool Fixed::operator>(const Fixed &other)
 {
-	if (this->_fixedPoint > &other._fixedPoint)
+	if (this->_fixedPoint > other._fixedPoint)
 		return (true);
 	return (false);
 }
 
-bool &Fixed::operator<(const Fixed &other)
+bool Fixed::operator<(const Fixed &other)
 {
-	if (this->_fixedPoint < &other._fixedPoint)
+	if (this->_fixedPoint < other._fixedPoint)
 		return (true);
 	return (false);
 }
 
-bool &Fixed::operator>=(const Fixed &other)
+bool Fixed::operator>=(const Fixed &other)
 {
-	if (this->_fixedPoint >= &other._fixedPoint)
+	if (this->_fixedPoint >= other._fixedPoint)
 		return (true);
 	return (false);
 }
 
-bool &Fixed::operator<=(const Fixed &other)
+bool Fixed::operator<=(const Fixed &other)
 {
-	if (this->_fixedPoint <= &other._fixedPoint)
+	if (this->_fixedPoint <= other._fixedPoint)
 		return (true);
 	return (false);
 }
 
-bool &Fixed::operator==(const Fixed &other)
+bool Fixed::operator==(const Fixed &other)
 {
-	if (this->_fixedPoint == &other._fixedPoint)
+	if (this->_fixedPoint == other._fixedPoint)
 		return (true);
 	return (false);
 }
 
-bool &Fixed::operator!=(const Fixed &other)
+bool Fixed::operator!=(const Fixed &other)
 {
-	if (this->_fixedPoint != &other._fixedPoint)
+	if (this->_fixedPoint != other._fixedPoint)
 		return (true);
 	return (false);
 }
@@ -114,22 +108,26 @@ bool &Fixed::operator!=(const Fixed &other)
 
 Fixed &Fixed::operator+(const Fixed &other)
 {
-	return (this->_fixedPoint + &other._fixedPoint);
+	this->_fixedPoint += other._fixedPoint;
+	return *this;
 }
 
 Fixed &Fixed::operator-(const Fixed &other)
 {
-	return (this->_fixedPoint - &other._fixedPoint);
+	this->_fixedPoint -= other._fixedPoint;
+	return *this;
 }
 
 Fixed &Fixed::operator*(const Fixed &other)
 {
-	return (this->_fixedPoint * &other._fixedPoint);
+	this->_fixedPoint *= other.toInt();
+	return *this;
 }
 
 Fixed &Fixed::operator/(const Fixed &other)
 {
-	return (this->_fixedPoint / &other._fixedPoint);
+	this->_fixedPoint /= other.toInt();
+	return *this;
 }
 
 //prefix operators
@@ -152,7 +150,7 @@ Fixed Fixed::operator++(int)
 {
 	Fixed aux;
 	aux = *this;
-	aux._fixedPoint += 1;
+	this->_fixedPoint += 1;
 	return (aux);
 }
 
@@ -160,7 +158,7 @@ Fixed Fixed::operator--(int)
 {
 	Fixed aux;
 	aux = *this;
-	aux._fixedPoint -= 1;
+	this->_fixedPoint -= 1;
 	return (aux);
 }
 
@@ -184,6 +182,35 @@ float Fixed::toFloat(void) const
 int Fixed::toInt(void) const
 {
 	return (this->_fixedPoint >> this->_fractBits);
+}
+
+Fixed &Fixed::min(Fixed &fixed1, Fixed &fixed2)
+{
+	if (fixed1 < fixed2)
+		return (fixed1);
+	else
+		return (fixed2);
+}
+Fixed &Fixed::max(Fixed &fixed1, Fixed &fixed2)
+{
+	if (fixed1 > fixed2)
+		return (fixed1);
+	else
+		return (fixed2);
+}
+Fixed const &Fixed::min(const Fixed &fixed1, const Fixed &fixed2)
+{
+	if (fixed1._fixedPoint < fixed2._fixedPoint)
+		return (fixed1);
+	else
+		return (fixed2);
+}
+Fixed const &Fixed::max(const Fixed &fixed1, const Fixed &fixed2)
+{
+	if (fixed1._fixedPoint > fixed2._fixedPoint)
+		return (fixed1);
+	else
+		return (fixed2);
 }
 
 //function overload <<

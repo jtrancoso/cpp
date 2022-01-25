@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 13:50:53 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/24 17:36:19 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/25 13:12:52 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,17 @@ class Fixed
 		~Fixed(); 											//destructor
 		Fixed(const Fixed &Copy); 							//copy constrctor
 		Fixed &operator=(const Fixed &other); 				//assigment operator overload
-		bool &operator>(const Fixed &other);				//comparison operators
-		bool &operator<(const Fixed &other);
-		bool &operator>=(const Fixed &other);
-		bool &operator<=(const Fixed &other);
-		bool &operator==(const Fixed &other);
-		bool &operator!=(const Fixed &other);
-		Fixed &operator+(const Fixed &other);				//arithmetic operators
+		bool operator>(const Fixed &other);				//comparison operators
+		bool operator<(const Fixed &other);
+		bool operator>=(const Fixed &other);
+		bool operator<=(const Fixed &other);
+		bool operator==(const Fixed &other);
+		bool operator!=(const Fixed &other);
+		Fixed&operator+(const Fixed &other);				//arithmetic operators
 		Fixed &operator-(const Fixed &other);
 		Fixed &operator*(const Fixed &other);
 		Fixed &operator/(const Fixed &other);
-		Fixed &operator++(void;								//prefix operators
+		Fixed &operator++(void);								//prefix operators
 		Fixed &operator--(void);
 		Fixed operator++(int);								//postfix operators
 		Fixed operator--(int);
@@ -45,7 +45,7 @@ class Fixed
 		static Fixed &min(Fixed &fixed1, Fixed &fixed2);
 		static Fixed &max(Fixed &fixed1, Fixed &fixed2);
 		static const Fixed &min(const Fixed &fixed1, const Fixed &fixed2);
-		static const Fixed &min(const Fixed &fixed1, const Fixed &fixed2);
+		static const Fixed &max(const Fixed &fixed1, const Fixed &fixed2);
 
 
 	private:
