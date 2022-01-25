@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 13:50:51 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/25 13:20:43 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/25 19:33:13 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,7 @@ Fixed::Fixed(const Fixed &Copy)
 Fixed &Fixed::operator=(const Fixed &other)
 {
 	if (this != &other)
-	{
 		this->_fixedPoint = other.getRawBits();
-	}
 	return *this;
 }
 
