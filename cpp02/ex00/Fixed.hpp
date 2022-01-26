@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 13:50:53 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/24 13:15:34 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/01/26 16:55:21 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ class Fixed
 	private:
 		int _fixedPoint;
 		static const int _fractBits = 8;
-
 };
