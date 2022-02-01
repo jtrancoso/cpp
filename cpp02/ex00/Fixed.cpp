@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/21 13:50:51 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/24 13:28:55 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/01 11:31:23 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Fixed::~Fixed(void)
 Fixed::Fixed(const Fixed &Copy)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	this->_fixedPoint = Copy.getRawBits();
+	*this = Copy;
 	return;
 }
 
