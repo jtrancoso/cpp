@@ -35,13 +35,16 @@ int main()
 	delete(i);
 
 	const WrongAnimal *wrong = new WrongAnimal();
-	const WrongAnimal *cat = new WrongCat();
+	const WrongCat *cat = new WrongCat();
+	const WrongAnimal *cat2 = new WrongCat();
 
 	wrong->makeSound();
 	cat->makeSound();
+	cat2->makeSound();
 	std::cout << cat->getType() << std::endl;
 
 	delete(wrong);
 	delete(cat);
+	delete(cat2);
 
 }
