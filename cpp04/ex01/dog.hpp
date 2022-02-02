@@ -12,6 +12,7 @@
 
 #pragma once
 #include "animal.hpp"
+#include "brain.hpp"
 
 class Dog: public Animal
 {
@@ -21,4 +22,7 @@ class Dog: public Animal
 		virtual ~Dog();
 		Dog &operator=(const Dog &other);
 		virtual void makeSound() const;
+
+	private:
+		Brain *_Brain;
 };

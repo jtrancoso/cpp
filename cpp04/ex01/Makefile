@@ -9,7 +9,7 @@ RM = rm -f
 		${CC} ${CXXFLAGS} -c $< -o ${<:.cpp=.o}
 
 ${NAME}:	${OBJS}
-			$(CC) -fsanitize=address ${OBJS} -o ${NAME}
+			$(CC) ${OBJS} -o ${NAME}
 
 all:		${NAME}
 

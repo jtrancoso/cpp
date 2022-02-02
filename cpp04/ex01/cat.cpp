@@ -16,6 +16,7 @@
 Cat::Cat()
 {
 	this->type = "Cat";
+	this->_Brain = new Brain();
 	std::cout << "Cat default constructor called" << std::endl;
 }
 
@@ -27,6 +28,7 @@ Cat::Cat(const Cat &copy): Animal(copy)
 Cat::~Cat()
 {
 	std::cout << "Cat destructor called" << std::endl;
+	delete this->_Brain;
 }
 
 Cat &Cat::operator=(const Cat &other)

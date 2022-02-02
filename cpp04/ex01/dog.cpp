@@ -16,6 +16,7 @@
 Dog::Dog()
 {
 	this->type = "Dog";
+	this->_Brain = new Brain();
 	std::cout << "Dog default constructor called" << std::endl;
 }
 
@@ -27,6 +28,7 @@ Dog::Dog(const Dog &copy): Animal(copy)
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
+	delete this->_Brain;
 }
 
 Dog &Dog::operator=(const Dog &other)
