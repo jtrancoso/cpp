@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 17:01:30 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/28 13:31:25 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/02 10:31:43 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int main ()
 
 
 	dia.attack("ese");
+	dia.beRepaired(17);
 	dia.guardGate();
 	dia.highFivesGuys();
 	dia.whoAmI();

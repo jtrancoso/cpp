@@ -1,7 +1,7 @@
 SRCS =	main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 OBJS = ${SRCS:.cpp=.o}
-NAME = claptrap
-CXXFLAGS = -Werror -Wall -Wextra -std=c++98
+NAME = test
+CXXFLAGS = -Werror -Wall -Wextra -Wshadow -std=c++98
 CC = clang++
 RM = rm -f
 
