@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 12:13:13 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/01/18 16:30:41 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/03 12:40:10 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 class Zombie
 {
 	public:
-
+		Zombie();
+		Zombie(std::string name);
 		void announce(void) const;
 		void setName (std::string name);
 		~Zombie (void);
