@@ -1,4 +1,4 @@
-SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp
+SRCS =	main.cpp AMateria.cpp Character.cpp Cure.cpp Ice.cpp MateriaSource.cpp
 OBJS = ${SRCS:.cpp=.o}
 NAME = test
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98

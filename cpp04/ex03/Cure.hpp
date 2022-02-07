@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:56:29 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/03 16:51:42 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/07 15:41:39 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ class Cure: public AMateria
 	public:
 		Cure(); 
 		virtual ~Cure();
-		Cure(const Cure &copy);
-		Cure &operator=(const Cure &other);
-		virtual Cure *clone();
+		Cure(const Cure &);
+		Cure &operator=(const Cure &);
+		virtual AMateria *clone() const;
 		virtual void use(ICharacter &target);
 
 	private:

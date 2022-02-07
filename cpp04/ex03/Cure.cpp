@@ -6,11 +6,12 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/03 15:56:27 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/03 16:52:46 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/07 16:13:44 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
+#include "ICharacter.hpp"
 #include <iostream>
 
 Cure::Cure()
@@ -19,7 +20,7 @@ Cure::Cure()
 	this->_type = "cure";
 }
 
-Cure::Cure(const Cure &copy)
+Cure::Cure(const Cure &): AMateria("cure")
 {
 	std::cout << "Cure copy constructor called" << std::endl;
 }
@@ -29,13 +30,13 @@ Cure::~Cure()
 	std::cout << "Cure default destructor called" << std::endl;
 }
 
-Cure &Cure::operator=(const Cure &other)
+Cure &Cure::operator=(const Cure &)
 {
 	std::cout << "Cure assignment operator called" << std::endl;
 	return *this;
 }
 
-Cure *Cure::clone()
+AMateria *Cure::clone() const
 {
 	Cure *tmp = new Cure(*this);
 	return tmp;
@@ -43,5 +44,5 @@ Cure *Cure::clone()
 
 void Cure::use(ICharacter &target)
 {
-	std::cout << "* heals " << target.name << " wound *" << std::endl;
+	std::cout << "* heals " << target.getName() << " wounds *" << std::endl;
 }
