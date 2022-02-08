@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:02:32 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/07 18:02:33 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/08 12:02:42 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,10 @@ int main()
 	try
 	{
 		Bureaucrat	bureaucrat("bur1", 140);
-		std::cout << bureaucrat << std::endl;
+		Bureaucrat burr("juan", 33);
+		std::cout << burr << std::endl;
+		burr = bureaucrat;
+		std::cout << burr << std::endl;
 		bureaucrat.incrementGrade();
 		std::cout << bureaucrat << std::endl;
 		bureaucrat.decrementGrade();

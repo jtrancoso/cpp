@@ -6,11 +6,12 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:47:30 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 12:01:27 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/08 14:05:07 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 #include <iostream>
 
 Bureaucrat::Bureaucrat(): _name(""), _grade(150)
@@ -36,7 +37,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &other)
 {
 	std::cout << "Bureaucrat assignment operator called" << std::endl;
 	if (this != &other)
-		this->_grade = other.getGrade();
+		this->_grade = other._grade;
 	return *this;
 }
 
@@ -77,6 +78,23 @@ const char *Bureaucrat::GradeTooHighException::what() const throw()
 const char *Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low exception");
+}
+
+void Bureaucrat::signForm(Form &form)
+{
+	try 
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signs " << form.getName() << std::endl;
+	}
+	catch(Form::GradeTooLowException& e)
+	{
+		std::cout << this->_name << " cannot sign " << form.getName() << " because grade is too low, gitgud scrub" << std::endl;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << this->_name << " cannot sign " << form.getName() << " because grade is too low, gitgud scrub" << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &other)

@@ -6,12 +6,14 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:31:22 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 10:15:30 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/08 13:24:17 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <string>
+
+class Form;
 
 class Bureaucrat
 {
@@ -25,6 +27,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form &form);
 		class GradeTooHighException: public std::exception
 		{
 			public:
