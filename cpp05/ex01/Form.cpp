@@ -6,14 +6,14 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:37:55 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 13:54:48 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/08 15:29:41 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include <iostream>
 
-Form::Form(): _name(""), _isSigned(false), _gradeToSign(150), _gradeToExec(150)
+Form::Form(): _name(""), _isSigned(false), _gradeToSign(1), _gradeToExec(1)
 {
 	std::cout << "Form default constructor called" << std::endl;
 }
@@ -24,7 +24,7 @@ Form::Form(std::string const name, int const gradeToSign, int const gradeToExec)
 		throw Form::GradeTooLowException();
 	if (this->_gradeToSign < 1 || this->_gradeToSign < 1)
 		throw Form::GradeTooHighException();
-	std::cout << "Form: " << name << " GradeToSign: " << gradeToSign << " GradeToExec: " << gradeToExec << " constructor called" << std::endl;
+	std::cout << "Form <" << name << "> with GradeToSign <" << gradeToSign << "> constructor called" << std::endl;
 }
 
 Form::Form(const Form &copy): _name(copy._name), _isSigned(copy._isSigned), _gradeToSign(copy._gradeToSign), _gradeToExec(copy._gradeToExec)
@@ -42,7 +42,7 @@ Form &Form::operator=(const Form &other)
 
 Form::~Form()
 {
-	std::cout << "Form: " << this->_name << " destructor called" << std::endl;
+	std::cout << "Form <" << this->_name << "> destructor called" << std::endl;
 }
 
 std::string const Form::getName() const
@@ -75,20 +75,20 @@ void Form::beSigned(const Bureaucrat &other)
 
 const char *Form::GradeTooHighException::what() const throw()
 {
-	return ("Grade too high exception");
+	return ("Grade too high");
 }
 
 const char *Form::GradeTooLowException::what() const throw()
 {
-	return ("Grade too low exception");
+	return ("Grade too low");
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &other)
 {
-	out << "Form: " << other.getName() << " grade to sign: " << other.getGradeToSign() << " grade to exec: " << other.getGradeToExec();
+	out << "Form <" << other.getName() << "> grade to sign <" << other.getGradeToSign() << "> grade to exec <" << other.getGradeToExec() << ">";
 	if (other.getIfSigned())
-		out << ", is signed: true";
+		out << ", is signed <true>";
 	else
-		out << ", is signed: false";
+		out << ", is signed <false>";
 	return (out);
 }
