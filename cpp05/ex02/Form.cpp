@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:37:55 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 15:29:41 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/09 13:21:06 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ Form::Form(): _name(""), _isSigned(false), _gradeToSign(1), _gradeToExec(1)
 }
 
 Form::Form(std::string const name, int const gradeToSign, int const gradeToExec): _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+{
+	if (this->_gradeToSign > 150 || this->_gradeToExec > 150)
+		throw Form::GradeTooLowException();
+	if (this->_gradeToSign < 1 || this->_gradeToSign < 1)
+		throw Form::GradeTooHighException();
+	std::cout << "Form <" << name << "> with GradeToSign <" << gradeToSign << "> constructor called" << std::endl;
+}
+
+Form::Form(std::string const name, int const gradeToSign, int const gradeToExec, std::string target): _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _target(target)
 {
 	if (this->_gradeToSign > 150 || this->_gradeToExec > 150)
 		throw Form::GradeTooLowException();
@@ -63,6 +72,11 @@ int Form::getGradeToExec() const
 bool Form::getIfSigned() const
 {
 	return this->_isSigned;
+}
+
+std::string Form::getTarget() const
+{
+	return this->_target;
 }
 
 void Form::beSigned(const Bureaucrat &other)
