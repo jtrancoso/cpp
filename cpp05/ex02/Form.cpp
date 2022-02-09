@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:37:55 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/09 13:21:06 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/09 18:20:29 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,20 @@ std::string Form::getTarget() const
 	return this->_target;
 }
 
-void Form::beSigned(const Bureaucrat &other)
+void Form::beSigned(const Bureaucrat &signer)
 {
-	if (other.getGrade() <= this->_gradeToSign)
+	if (signer.getGrade() <= this->_gradeToSign)
 		this->_isSigned = true;
 	else
 		throw Form::GradeTooLowException();
+}
+
+bool Form::beExecuted(const Bureaucrat &executer) const
+{
+	if (executer.getGrade() <= this->_gradeToExec && this->_isSigned)
+		return true;
+	else
+		throw Bureaucrat::GradeTooLowException();
 }
 
 const char *Form::GradeTooHighException::what() const throw()

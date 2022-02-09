@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:00:08 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/09 14:24:57 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/09 18:08:18 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form::Form("Sh
 	std::cout << "Shrubbery constructor called with target: " << target << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy): Form::Form(copy.getName(), copy.getGradeToSign, copy.getGradeToExec(), copy.getTarget())
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy): Form::Form(copy.getName(), copy.getGradeToSign(), copy.getGradeToExec(), copy.getTarget())
 {
 	std::cout << "Shrubbery copy constructor called" << std::endl;
 }
@@ -31,6 +31,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy):
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &other)
 {
 	std::cout << "Shrubbery assignment operator called" << std::endl;
+	other.getName();
 	return *this;
 }
 
@@ -41,6 +42,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
+	this->beExecuted(executor);
 	std::string fileName = this->getTarget() + "_shrubbery";
 	
 	std::ofstream dstFile;
@@ -56,4 +58,5 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	dstFile << "       |.|        | |         | |" << std::endl;
 	dstFile << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
 	dstFile.close();
+	std::cout << executor.getName() << " executed shrubbery form " << fileName << std::endl;
 }

@@ -1,4 +1,5 @@
-SRCS =	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp 
+SRCS =	main.cpp Bureaucrat.cpp Form.cpp ShrubberyCreationForm.cpp 
+#RobotomyRequestForm.cpp PresidentialPardonForm.cpp 
 OBJS = ${SRCS:.cpp=.o}
 NAME = test
 CXXFLAGS = -Werror -Wall -Wextra -std=c++98
