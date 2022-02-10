@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:00:08 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/10 13:36:52 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:24:52 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
 	this->beExecuted(executor);
 	std::string fileName = this->getTarget() + "_shrubbery";
-	
 	std::ofstream dstFile;
 	dstFile.open(fileName);
 	dstFile << "               ,@@@@@@@," << std::endl;

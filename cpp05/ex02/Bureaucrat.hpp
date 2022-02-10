@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 16:31:22 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 13:24:17 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:11:30 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(Form &form);
+		void executeForm(Form const &form);
 		class GradeTooHighException: public std::exception
 		{
 			public:

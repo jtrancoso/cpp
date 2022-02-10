@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:47:30 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 15:32:56 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/10 18:26:08 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,19 @@ void Bureaucrat::signForm(Form &form)
 	catch(Form::GradeTooLowException &e)
 	{
 		std::cout << "Bureaucrat <" << this->_name << "> cannot sign <" << form.getName() << "> because grade is too low, gitgud scrub" << std::endl;
+	}
+}
+
+void Bureaucrat::executeForm(Form const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << this->getName() << "executes " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << '\n';
 	}
 }
 

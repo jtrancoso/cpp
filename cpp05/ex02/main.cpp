@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:02:32 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/10 13:33:28 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:21:07 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ int main()
 {
 	Bureaucrat		boss("Michael Scott", 1);
 	Bureaucrat		assistant("Dwight Schrute", 40);
-	Bureaucrat		intern("Ryan Howard", 150);
+	Bureaucrat		temp("Ryan Howard", 150);
 
 	try
 	{
-		PresidentialPardonForm pf("Jim Harper");
+		PresidentialPardonForm pf("Jim Harper");		// 25, 5
 		std::cout<< pf <<std::endl;
 		pf.beSigned(boss);
-		pf.execute(boss);
+		boss.executeForm(pf);
 	}
 	catch (std::exception &e)
 	{
@@ -37,13 +37,14 @@ int main()
 
 	try
 	{
-		RobotomyRequestForm rb("Kevin");
+		RobotomyRequestForm rb("Kevin");				// 72, 45
 		std::cout<< rb <<std::endl;
-		rb.beSigned(boss);
-		rb.execute(assistant);
-		rb.execute(boss);
-		rb.execute(boss);
-		rb.execute(boss);
+
+		rb.beSigned(assistant);
+		assistant.executeForm(rb);
+		boss.executeForm(rb);
+		boss.executeForm(rb);
+		temp.executeForm(rb);
 	}
 	catch (std::exception &e)
 	{
@@ -53,11 +54,11 @@ int main()
 
 	try
 	{
-		ShrubberyCreationForm shf("the_office");
-		std::cout<< shf <<std::endl;
-		shf.beSigned(boss);
-		std::cout<< shf <<std::endl;
-		shf.execute(assistant);
+		ShrubberyCreationForm sf("the_office");		// 145, 137
+		std::cout<< sf <<std::endl;
+		sf.beSigned(assistant);
+		std::cout<< sf <<std::endl;
+		assistant.executeForm(sf);
 	}
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;

@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 11:43:10 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/10 13:23:48 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/10 17:24:47 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ RobotomyRequestForm::~RobotomyRequestForm()
 
 void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
+	this->beExecuted(executor);
 	sleep(rand() % 2 + 1);
 	srand(time(0));
 	int fifty = rand();
-	this->beExecuted(executor);
 	fifty %= 2;
 	if (fifty != 0)
 		std::cout << "** rizzz rizzz rizzzz... " << this->getTarget() << " has been robotomized 🤖" << std::endl;
