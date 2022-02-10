@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 12:00:08 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/09 18:08:18 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:36:52 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 	dstFile << "   `&%\\ ` /%&'    |.|       \\ '|8'" << std::endl;
 	dstFile << "       |o|        | |         | |" << std::endl;
 	dstFile << "       |.|        | |         | |" << std::endl;
-	dstFile << "    \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
+	dstFile << "     \\/ ._\\//_/__/  ,\\_//__ \\/.  \\_//__/_" << std::endl;
 	dstFile.close();
-	std::cout << executor.getName() << " executed shrubbery form " << fileName << std::endl;
+	std::cout << executor.getName() << " planted some trees at " << fileName << " 🌲🌲" << std::endl;
 }

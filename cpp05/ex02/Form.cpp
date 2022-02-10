@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:37:55 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/09 18:20:29 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/10 13:30:50 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,17 +82,22 @@ std::string Form::getTarget() const
 void Form::beSigned(const Bureaucrat &signer)
 {
 	if (signer.getGrade() <= this->_gradeToSign)
+	{
 		this->_isSigned = true;
+		std::cout << this->getName() << " was signed by " << signer.getName() << std::endl;
+	}
 	else
 		throw Form::GradeTooLowException();
 }
 
-bool Form::beExecuted(const Bureaucrat &executer) const
+void Form::beExecuted(const Bureaucrat &executer) const
 {
-	if (executer.getGrade() <= this->_gradeToExec && this->_isSigned)
-		return true;
+	if (!this->_isSigned)
+		throw Form::NotSignedException();
+	else if (executer.getGrade() <= this->_gradeToExec)
+		return ;
 	else
-		throw Bureaucrat::GradeTooLowException();
+		throw Form::GradeTooLowException();
 }
 
 const char *Form::GradeTooHighException::what() const throw()
@@ -103,6 +108,11 @@ const char *Form::GradeTooHighException::what() const throw()
 const char *Form::GradeTooLowException::what() const throw()
 {
 	return ("Grade too low");
+}
+
+const char *Form::NotSignedException::what() const throw()
+{
+	return ("Form is not signed");
 }
 
 std::ostream &operator<<(std::ostream &out, const Form &other)
