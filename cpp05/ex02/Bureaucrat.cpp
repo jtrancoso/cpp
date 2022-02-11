@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 17:47:30 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/10 18:26:08 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/11 11:35:47 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,12 +102,16 @@ void Bureaucrat::executeForm(Form const &form)
 {
 	try
 	{
+		std::cout << this->getName() << " executes " << form.getName() << std::endl;
 		form.execute(*this);
-		std::cout << this->getName() << "executes " << form.getName() << std::endl;
 	}
-	catch(const std::exception& e)
+	catch(Form::GradeTooLowException &e)
 	{
-		std::cerr << e.what() << '\n';
+		std::cout << "Bureaucrat <" << this->_name << "> cannot execute <" << form.getName() << "> because grade is too low, gitgud scrub" << std::endl;
+	}
+	catch(Form::NotSignedException &e)
+	{
+		std::cout << "Bureaucrat <" << this->_name << "> cannot execute <" << form.getName() << "> because " << e.what() << std::endl;
 	}
 }
 
