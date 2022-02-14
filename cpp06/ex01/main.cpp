@@ -6,12 +6,13 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 13:35:24 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/14 15:11:36 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/14 15:34:39 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <iomanip>
+#include <stdint.h>
 
 struct Data
 {
@@ -39,6 +40,6 @@ int main()
 	std::cout << "deserialized:   " << deserialized << std::endl;
 	std::cout << "original:       " << &data << std::endl;
 	std::cout << "deserialized n: " << deserialized->n << std::endl;
-	std::cout << "original:       " << data.n << std::endl;
+	std::cout << "original n:     " << data.n << std::endl;
 	return 0;
 }
