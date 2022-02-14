@@ -5,47 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/01 16:03:13 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/11 13:14:47 by jtrancos         ###   ########.fr       */
+/*   Created: 2022/02/14 13:35:24 by jtrancos          #+#    #+#             */
+/*   Updated: 2022/02/14 14:03:51 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "animal.hpp"
-#include "brain.hpp"
-#include "cat.hpp"
-#include "dog.hpp"
 #include <iostream>
+#include <iomanip>
 
-void leakss()
+struct Data
 {
-	system("leaks test");
+	int n;
+};
+
+uintptr_t serialize(Data *ptr)
+{
+	return (reinterpret_cast<uintptr_t>(ptr));
+}
+
+Data *deserialize(uintptr_t raw)
+{
+	return (reinterpret_cast<Data *>(raw));
 }
 
 int main()
 {
-	const Animal *j = new Dog();
-	const Animal *i = new Cat();
-	//Animal test;
+	Data test;
 
-	delete j;
-	delete i;
-	
-	const Animal *animals[4];
-	for (int i = 0; i < 4; i++)
-	{
-		if (i % 2 == 0 || i == 0)
-			animals[i] = new Dog();
-		else
-			animals[i] = new Cat();
-	}
-	for (int i = 0; i < 4; i++)
-		delete animals[i];
-	Dog basic;
-	{
-		Dog tmp = basic;
-		std::cout << tmp.getbrain() << std::endl;
-	}
-	std::cout << basic.getbrain() << std::endl;
-	atexit(leakss);
-	return (0);
+	test.n = 42;
+	uintptr_t raw = serialize(&test);
+	std::cout << raw << std::endl;
+	Data *deserialized = deserialize(raw);
+	std::cout << deserialized << std::endl;
+	return 0;
 }
