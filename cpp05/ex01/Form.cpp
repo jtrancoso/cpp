@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 10:37:55 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 15:29:41 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:14:06 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ std::ostream &operator<<(std::ostream &out, const Form &other)
 {
 	out << "Form <" << other.getName() << "> grade to sign <" << other.getGradeToSign() << "> grade to exec <" << other.getGradeToExec() << ">";
 	if (other.getIfSigned())
-		out << ", is signed <true>";
+		out << " is signed <true>";
 	else
-		out << ", is signed <false>";
+		out << " is signed <false>";
 	return (out);
 }

@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/17 13:36:49 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/17 14:04:49 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:04:08 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,13 +37,27 @@ int main()
 	}
 	std::stack<int> s(mstack);
 	std::cout << "Is empty? " << s.empty() << std::endl;
-
-	MutantStack<int> ms(mstack);
-	while (!ms.empty())
+	
+	MutantStack<int> ms2;
+	int i = 1;
+	while (i < 11)
 	{
-		std::cout << "popped: " << ms.top() << std::endl;
-		ms.pop();
+		ms2.push(i * 3 * 2 + 1);
+		i++;
 	}
-	std::cout << "Is empty? " << ms.empty() << std::endl;
+	it = ms2.begin();
+	ite = ms2.end();
+	while (it != ite)
+	{
+		std::cout << "ms2: " << *it << std::endl;
+		it++;
+	}
+	std::stack<int> copy(ms2);
+	while (!copy.empty())
+	{
+		std::cout << "popped: " << copy.top() << std::endl;
+		copy.pop();
+	}
+	std::cout << "Is empty? " << copy.empty() << std::endl;
 	return 0;
 }

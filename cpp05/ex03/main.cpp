@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:02:32 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/11 13:08:06 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:20:59 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,17 @@ int main()
 		assistant.signForm(*sc);
 		std::cout<< *sc <<std::endl;
 		assistant.executeForm(*sc);
+	}
+	catch (std::exception &e){
+		std::cout << e.what() << std::endl;
+	}
+	try
+	{
+		Form *dm = randomIntern.makeForm("Dunder Mifflin request", "women_wc");			// 145, 137
+		std::cout<< *dm <<std::endl;
+		assistant.signForm(*dm);
+		std::cout<< *dm <<std::endl;
+		assistant.executeForm(*dm);
 	}
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;

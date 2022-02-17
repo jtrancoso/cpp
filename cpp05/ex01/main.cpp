@@ -6,7 +6,7 @@
 /*   By: jtrancos <jtrancos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/07 18:02:32 by jtrancos          #+#    #+#             */
-/*   Updated: 2022/02/08 15:34:07 by jtrancos         ###   ########.fr       */
+/*   Updated: 2022/02/17 16:13:17 by jtrancos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ int main()
 {
 try 
 	{
-		Form		form1("Papelote", 3, 5);
-		Bureaucrat	bur1("Mortadelo", 10);
-		Bureaucrat	bur2("Filemon", 1);
+		Form		form1("Paper Permit", 3, 5);
+		Bureaucrat	boss("Michael Scott", 1);
+		Bureaucrat	assistant("Dwight Schrute", 37);
 
 		std::cout << form1 <<std::endl;
 
-		bur1.signForm(form1);
+		assistant.signForm(form1);
 		std::cout << form1 <<std::endl;
 
-		bur2.signForm(form1);
+		boss.signForm(form1);
 		std::cout << form1 <<std::endl;
 
-		bur1.signForm(form1);
+		boss.signForm(form1);
 	}
 	catch(Form::GradeTooHighException & e)
 	{
